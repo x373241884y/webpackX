@@ -1,0 +1,80 @@
+<div>
+	<h2>ngHref</h2>
+
+	<br />
+	<h4 class="text-info">描述：</h4>
+	<p class="text-info">
+		angular 用{{}}直接绑定到href属性当中，如搞angular在绑定值之前用户点击链接，将跳转错误的地址，ngHref指令就是为了解决这个问题。
+	</p>
+	<br />
+
+	<h4 class="text-success">
+		指令优先级
+	</h4>
+	<p class="text-success">
+		优先级别99。
+	</p>
+	<br />
+	<h4 class="text-primary">用法：</h4>
+	<h5 class="text-primary">属性方式：</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;A</span>
+        <span class="na">ng-href=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/A&gt;</span>
+</pre>
+	</div>
+
+	<br />
+	<h4 class="muted">属性：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th width="10%">
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				ngHref
+			</td>
+			<td>
+				template
+			</td>
+			<td>
+				任何可以包含{ { } }标记的字符串。
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<h4>例子：</h4><a class="text-warning" target="_blank" href="../demo/ngHref.html">效果演示</a>
+	<div class="highlight">
+        <pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>ngHref例子<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../angular-1.3.0.14/angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">ng-model=</span><span class="s">&quot;value&quot;</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">&quot;link-1&quot;</span> <span class="na">href</span> <span class="na">ng-click=</span><span class="s">&quot;value = 1&quot;</span><span class="nt">&gt;</span>link 1<span class="nt">&lt;/a&gt;</span> (link, don&#39;t reload)<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">&quot;link-2&quot;</span> <span class="na">href=</span><span class="s">&quot;&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;value = 2&quot;</span><span class="nt">&gt;</span>link 2<span class="nt">&lt;/a&gt;</span> (link, don&#39;t reload)<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">&quot;link-3&quot;</span> <span class="na">ng-href=</span><span class="s">&quot;/{{&#39;123&#39;}}&quot;</span><span class="nt">&gt;</span>link 3<span class="nt">&lt;/a&gt;</span> (link, reload!)<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">&quot;link-4&quot;</span> <span class="na">href=</span><span class="s">&quot;&quot;</span> <span class="na">name=</span><span class="s">&quot;xx&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;value = 4&quot;</span><span class="nt">&gt;</span>anchor<span class="nt">&lt;/a&gt;</span> (link, don&#39;t reload)<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">&quot;link-5&quot;</span> <span class="na">name=</span><span class="s">&quot;xxx&quot;</span> <span class="na">ng-click=</span><span class="s">&quot;value = 5&quot;</span><span class="nt">&gt;</span>anchor<span class="nt">&lt;/a&gt;</span> (no link)<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">&quot;link-6&quot;</span> <span class="na">ng-href=</span><span class="s">&quot;{{value}}&quot;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span> (link, change location)
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+	</div>
+
+</div>

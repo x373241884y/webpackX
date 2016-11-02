@@ -1,0 +1,116 @@
+<div>
+	<h2>angular.bootstrap</h2>
+	<br/>
+	<h4 class="text-info">描述：</h4>
+
+	<p class="text-info"> 此方法用于手动加载angularjs模板<br/>(官方翻译：注意基于端到端的测试不能使用此功能来引导手动加载，他们必须使用ngapp。
+		angularjs会检测这个模板是否被浏览器加载或者加载多次并且在控制台给出警告在加载其他模块的时候，这防止了奇怪的结果，在实际应用中，angularjs在尝试其它的多个实例来研究DOM)。
+	</p>
+	<br/>
+	<h4 class="text-success">
+		使用方法：
+	</h4>
+
+	<p class="text-success">
+		angular.bootstrap(element, [modules], [config]);
+	</p>
+	<br/>
+	<h4 class="muted">参数：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th>
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				element
+			</td>
+			<td>
+				DOMElement
+			</td>
+			<td>
+				DOM元素
+			</td>
+		</tr>
+		<tr>
+			<td>
+				modules
+			</td>
+			<td>
+				Array
+				<string
+				|function|array>
+			</td>
+			<td>
+				要加载的模板
+			</td>
+		</tr>
+		<tr>
+			<td>
+				config
+			</td>
+			<td>
+				Object
+			</td>
+			<td>
+				配置选项的对象。
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<h4 class="text-warning">返回值：</h4>
+
+	<p class="text-warning">返回这个应用程序的新创建的injector 对象</p>
+	<br/>
+	<h4>例子：</h4><a class="text-warning" target="_blank" href="../demo/bootstrap.html">效果演示</a>
+
+	<div class="highlight">
+        <pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span
+			        class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span
+			        class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span><span
+			        class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../angular-1.3.0.14/angular.js&quot;</span><span
+			        class="nt">&gt;&lt;/script&gt;</span>
+   
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;WelcomeController&quot;</span><span
+			        class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">ng-bind=</span><span
+			        class="s">&quot;greeting&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span
+			        class="nt">&gt;</span>
+        <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span
+			        class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;demo&#39;</span><span
+			        class="p">,</span> <span class="p">[])</span>
+        <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;WelcomeController&#39;</span><span
+			        class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span
+			        class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">greeting</span> <span class="o">=</span> <span
+			        class="s1">&#39;Welcome!&#39;</span><span class="p">;</span>
+        <span class="p">});</span>
+        <span class="nx">angular</span><span class="p">.</span><span class="nx">bootstrap</span><span class="p">(</span><span
+			        class="nb">document</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;demo&#39;</span><span
+			        class="p">]);</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+	</div>
+
+</div>

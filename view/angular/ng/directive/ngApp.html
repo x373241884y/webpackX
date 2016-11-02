@@ -1,0 +1,170 @@
+<div>
+	<h2>ngApp</h2>
+
+	<br />
+	<h4 class="text-info">描述：</h4>
+	<p class="text-info">
+		使用该指令自动启动一个AngularJS应用。ngapp指令指定的应用程序的根元素，通常放置在网页的根元素如body或html 标签。</br>
+		只有一个AngularJS应用可以自动引导每个HTML文档。第一ngapp找到该文件将定义自动引导的根元素的应用。运行多个应用程序在一个HTML文件，您必须手动引导他们使用angular.bootstrap。AngularJS应用不能互相嵌套。
+		<br />
+		你可以指定一个AngularJS模块被用于应用程序的根模块。该模块将被加载到应用程序时，引导到$injector对象中。它应该包含所需的应用程序代码，或依赖于将包含代码的其他模块的依赖关系。更多信息见angular.module。
+		<br />
+		在下面的例子中，如果ngapp指令不被放置在HTML元素的文件不会被编译。
+	</p>
+	<h5 class="text-warning">html：</h5>
+	<div class="highlight" ng-non-bindable>
+        <pre><span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;ngAppDemoController&quot;</span><span class="nt">&gt;</span>
+  I can add:{{a}} + {{b}} =  {{ a+b }}
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+	</div>
+	<h5 class="text-warning">js：</h5>
+	<div class="highlight">
+        <pre><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;ngAppDemo&#39;</span><span class="p">,</span> <span class="p">[]).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ngAppDemoController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">});</span>
+</pre>
+	</div>
+
+
+	<br />
+
+	<h4 class="text-success">
+		指令优先级
+	</h4>
+	<p class="text-success">
+		优先级别0。
+	</p>
+	<br />
+	<h4 class="text-primary">用法：</h4>
+	<div class="highlight">
+        <pre><span class="nt">&lt;ANY</span>
+        <span class="na">ng-app=</span><span class="s">&quot;&quot;</span>
+        <span class="err">[</span><span class="na">ng-strict-di=</span><span class="s">&quot;&quot;</span><span class="err">]</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/ANY&gt;</span>
+</pre>
+	</div>
+
+	<h4 class="muted">属性：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th width="10%">
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				ngApp
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				要加载应用模块的名字
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ngStrictDi
+				(optional)
+
+			</td>
+			<td>
+				bool
+			</td>
+			<td>
+				调试模式
+			</td>
+		</tr>
+
+		</tbody>
+	</table>
+	<br />
+	<h4>例子：</h4><a class="text-warning" target="_blank" href="../demo/ngapp.html">效果演示</a>
+	<h5 class="text-warning">html:</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;div</span> <span class="na">ng-app=</span><span class="s">&quot;ngAppStrictDemo&quot;</span> <span class="na">ng-strict-di</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;GoodController1&quot;</span><span class="nt">&gt;</span>
+        I can add: {{a}} + {{b}} =  {{ a+b }}
+        <span class="nt">&lt;p&gt;</span>This renders because the controller does not fail to
+           instantiate, by using explicit annotation style (see
+           script.js for details)
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;GoodController2&quot;</span><span class="nt">&gt;</span>
+        Name: <span class="nt">&lt;input</span> <span class="na">ng-model=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        Hello, {{name}}!
+        <span class="nt">&lt;p&gt;</span>This renders because the controller does not fail to
+           instantiate, by using explicit annotation style
+           (see script.js for details)
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;BadController&quot;</span><span class="nt">&gt;</span>
+        I can add: {{a}} + {{b}} =  {{ a+b }}
+        <span class="nt">&lt;p&gt;</span>The controller could not be instantiated, due to relying
+           on automatic function annotations (which are disabled in
+           strict mode). As such, the content of this section is not
+           interpolated, and there should be an error in your web console.
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+	</div>
+	<h5 class="text-warning">js:</h5>
+	<div class="highlight">
+        <pre><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;ngAppStrictDemo&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="c1">// BadController will fail to instantiate, due to relying on automatic function annotation,</span>
+<span class="c1">// rather than an explicit annotation</span>
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;BadController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">})</span>
+<span class="c1">// Unlike BadController, GoodController1 and GoodController2 will not fail to be instantiated,</span>
+<span class="c1">// due to using explicit annotations using the array style and $inject property, respectively.</span>
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;GoodController1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}])</span>
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;GoodController2&#39;</span><span class="p">,</span> <span class="nx">GoodController2</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">GoodController2</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">GoodController2</span><span class="p">.</span><span class="nx">$inject</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">];</span>
+</pre>
+	</div>
+	<h5 class="text-warning">css</h5>
+	<div class="highlight">
+        <pre><span class="nt">div</span><span class="o">[</span><span class="nt">ng-controller</span><span class="o">]</span> <span class="p">{</span>
+        <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+        <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+        <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
+        <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span><span class="p">;</span>
+        <span class="k">padding</span><span class="o">:</span> <span class="m">.5em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">div</span><span class="o">[</span><span class="nt">ng-controller</span><span class="o">^=</span><span class="nt">Good</span><span class="o">]</span> <span class="p">{</span>
+        <span class="k">border-color</span><span class="o">:</span> <span class="m">#d6e9c6</span><span class="p">;</span>
+        <span class="k">background-color</span><span class="o">:</span> <span class="m">#dff0d8</span><span class="p">;</span>
+        <span class="k">color</span><span class="o">:</span> <span class="m">#3c763d</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">div</span><span class="o">[</span><span class="nt">ng-controller</span><span class="o">^=</span><span class="nt">Bad</span><span class="o">]</span> <span class="p">{</span>
+        <span class="k">border-color</span><span class="o">:</span> <span class="m">#ebccd1</span><span class="p">;</span>
+        <span class="k">background-color</span><span class="o">:</span> <span class="m">#f2dede</span><span class="p">;</span>
+        <span class="k">color</span><span class="o">:</span> <span class="m">#a94442</span><span class="p">;</span>
+        <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+	</div>
+
+
+</div>

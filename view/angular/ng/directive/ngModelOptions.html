@@ -1,0 +1,130 @@
+<div>
+	<h2>ngModelOptions</h2>
+
+	<br />
+	<h4 class="text-info">描述：</h4>
+	<p class="text-info">
+		设置模型怎么更新。使用ngmodeloptions你可以指定一个自定义，设定如何触发模型的更新。
+		<br />
+
+	</p>
+	<br />
+
+	<h4 class="text-success">
+		指令优先级
+	</h4>
+	<p class="text-success">
+		优先级别0。
+	</p>
+	<br />
+	<h4 class="text-primary">用法：</h4>
+	<div class="highlight">
+        <pre><span class="nt">&lt;ANY</span>
+        <span class="na">ng-model-options=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/ANY&gt;</span>
+</pre>
+	</div>
+
+	<br />
+	<h4 class="muted">属性：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th width="10%">
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				ngList
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				分隔符
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<h4>例子：</h4><a class="text-warning" target="_blank" href="../demo/ngModelOptions.html">效果演示</a>
+	<div class="highlight" ng-non-bindable>
+        <pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app=</span><span class="s">&quot;optionsExample&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>ngModelOptions例子<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../angular-1.3.0.14/angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;optionsExample&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;say&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="p">};</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">cancel</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">27</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">userForm</span><span class="p">.</span><span class="nx">userName</span><span class="p">.</span><span class="nx">$rollbackViewValue</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="p">};</span>
+<span class="p">}]).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleController1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;say&#39;</span> <span class="p">};</span>
+<span class="p">}]).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleController2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">_name</span> <span class="o">=</span> <span class="s1">&#39;Brian&#39;</span><span class="p">;</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">newName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">isDefined</span><span class="p">(</span><span class="nx">newName</span><span class="p">)</span> <span class="o">?</span> <span class="p">(</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">newName</span><span class="p">)</span> <span class="o">:</span> <span class="nx">_name</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">};</span>
+<span class="p">}]);;</span>
+        <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;ExampleController&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;userForm&quot;</span><span class="nt">&gt;</span>
+            Name:
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;userName&quot;</span>
+        <span class="na">ng-model=</span><span class="s">&quot;user.name&quot;</span>
+        <span class="na">ng-model-options=</span><span class="s">&quot;{ updateOn: &#39;blur&#39; }&quot;</span>
+        <span class="na">ng-keyup=</span><span class="s">&quot;cancel($event)&quot;</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;</span>
+            Other data:
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;user.data&quot;</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+        <span class="nt">&lt;pre&gt;</span>user.name = <span class="nt">&lt;span</span> <span class="na">ng-bind=</span><span class="s">&quot;user.name&quot;</span><span class="nt">&gt;&lt;/span&gt;&lt;/pre&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;ExampleController1&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;userForm&quot;</span><span class="nt">&gt;</span>
+            Name:
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;userName&quot;</span>
+        <span class="na">ng-model=</span><span class="s">&quot;user.name&quot;</span>
+        <span class="na">ng-model-options=</span><span class="s">&quot;{ debounce: 1000 }&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;userForm.userName.$rollbackViewValue(); user.name=&#39;&#39;&quot;</span><span class="nt">&gt;</span>Clear<span class="nt">&lt;/button&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+        <span class="nt">&lt;pre&gt;</span>user.name = <span class="nt">&lt;span</span> <span class="na">ng-bind=</span><span class="s">&quot;user.name&quot;</span><span class="nt">&gt;&lt;/span&gt;&lt;/pre&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;ExampleController2&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;userForm&quot;</span><span class="nt">&gt;</span>
+            Name:
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;userName&quot;</span>
+        <span class="na">ng-model=</span><span class="s">&quot;user.name&quot;</span>
+        <span class="na">ng-model-options=</span><span class="s">&quot;{ getterSetter: true }&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+        <span class="nt">&lt;pre&gt;</span>user.name = <span class="nt">&lt;span</span> <span class="na">ng-bind=</span><span class="s">&quot;user.name()&quot;</span><span class="nt">&gt;&lt;/span&gt;&lt;/pre&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+	</div>
+
+
+
+
+
+
+</div>

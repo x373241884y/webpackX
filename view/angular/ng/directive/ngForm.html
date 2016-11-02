@@ -1,0 +1,76 @@
+<div>
+	<h2>ngForm</h2>
+
+	<br />
+	<h4 class="text-info">描述：</h4>
+	<p class="text-info">
+		表单名称。<br />
+		（官方翻译）嵌套的表单指令别名。HTML表单元素不允许嵌套。它是有用的嵌套形式，例如，如果一个子组件需要确定有效。<br />
+		注：ngform的目的是一组控制，但不是替换<form>标记的功能（如发布到服务器）
+	</p>
+	<br />
+
+	<h4 class="text-success">
+		指令优先级
+	</h4>
+	<p class="text-success">
+		优先级别0。
+	</p>
+	<br />
+	<h4 class="text-primary">用法：</h4>
+	<h5 class="text-primary">标签方式：</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;ng-form</span>
+        <span class="err">[</span><span class="na">name=</span><span class="s">&quot;&quot;</span><span class="err">]</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/ng-form&gt;</span>
+</pre>
+	</div>
+
+	<br />
+	<h5 class="text-primary">属性方式：</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;ANY</span>
+        <span class="err">[</span><span class="na">ng-form=</span><span class="s">&quot;&quot;</span><span class="err">]</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/ANY&gt;</span>
+</pre>
+	</div>
+	<br />
+	<h5 class="text-primary">类方式：</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;ANY</span> <span class="na">class=</span><span class="s">&quot;[ng-form: ;]&quot;</span><span class="nt">&gt;</span> ... <span class="nt">&lt;/ANY&gt;</span>
+</pre>
+	</div>
+
+	<br />
+	<h4 class="muted">属性：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th width="10%">
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				ngForm | name
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				表单名称。如果指定，则将将表单控制器发布到相关scope，根据此名称。
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>

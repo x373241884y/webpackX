@@ -1,0 +1,93 @@
+<div>
+	<h2>ngChange</h2>
+
+	<br />
+	<h4 class="text-info">描述：</h4>
+	<p class="text-info">
+		值改变时触发事件，这个事件是值改变就立即触发和JavaScript中的onchange的触发方式（在用户离开表单元素或按回车键时）不同。
+		<br />
+		ngChange事件只在基于model的值改变时才触发。
+
+	</p>
+	<br />
+
+	<h4 class="text-success">
+		指令优先级
+	</h4>
+	<p class="text-success">
+		优先级别0。
+	</p>
+	<br />
+	<h4 class="text-primary">用法：</h4>
+	<h5 class="text-primary">属性方式：</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;input</span>
+        <span class="na">ng-change=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/input&gt;</span>
+</pre>
+	</div>
+
+	<br />
+	<h4 class="muted">属性：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th width="10%">
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				ngChange
+			</td>
+			<td>
+				expression
+			</td>
+			<td>
+				值改变时触发事件
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<br />
+	<h4>例子：</h4><a class="text-warning" target="_blank" href="../demo/ngChange.html">效果演示</a>
+	<div class="highlight" ng-non-bindable>
+        <pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app=</span><span class="s">&quot;changeExample&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>ngChange例子<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../angular-1.3.0.14/angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;changeExample&#39;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">change</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">};</span>
+        <span class="p">}]);</span>
+        <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;ExampleController&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;confirmed&quot;</span> <span class="na">ng-change=</span><span class="s">&quot;change()&quot;</span> <span class="na">id=</span><span class="s">&quot;ng-change-example1&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;confirmed&quot;</span> <span class="na">id=</span><span class="s">&quot;ng-change-example2&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;ng-change-example2&quot;</span><span class="nt">&gt;</span>Confirmed<span class="nt">&lt;/label&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;tt&gt;</span>debug = {{confirmed}}<span class="nt">&lt;/tt&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;tt&gt;</span>counter = {{counter}}<span class="nt">&lt;/tt&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+	</div>
+
+</div>

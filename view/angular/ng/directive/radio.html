@@ -1,0 +1,162 @@
+<div>
+	<h2>input[radio]</h2>
+
+	<br/>
+	<h4 class="text-info">描述：</h4>
+
+	<p class="text-info">
+		html radio标签
+
+	</p>
+	<br/>
+
+	<h4 class="text-success">
+		指令优先级
+	</h4>
+
+	<p class="text-success">
+		优先级别0。
+	</p>
+	<br/>
+	<h4 class="muted">属性：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th>
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				ngModel
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				绑定的数据
+			</td>
+		</tr>
+		<tr>
+			<td>
+				name
+				(optional)
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				名称
+			</td>
+		</tr>
+		<tr>
+			<td>
+				value
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				选择中时的值。
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ngValue
+				(optional)
+			</td>
+			<td>
+				string
+
+
+			</td>
+			<td>
+				选择中时的值（表达式）。
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ngChange
+				(optional)
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				值改变时触发事件
+			</td>
+		</tr>
+
+
+		</tbody>
+	</table>
+	<br/>
+	<h4>例子：</h4>
+	<a class="text-warning" target="_blank" href="../demo/radio.html">效果演示</a>
+
+	<div class="highlight" ng-non-bindable>
+        <pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span
+			        class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app=</span><span
+			        class="s">&quot;radioExample&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span
+			        class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span
+			        class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>radio例子<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../angular-1.3.0.14/angular.js&quot;</span><span
+			        class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span
+			        class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span
+			        class="p">(</span><span class="s1">&#39;radioExample&#39;</span><span class="p">,</span> <span
+			        class="p">[])</span>
+        <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleController&#39;</span><span
+			        class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span
+			        class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span
+			        class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">color</span> <span
+			        class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">;</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">specialValue</span> <span
+			        class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;12345&quot;</span><span
+			        class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;green&quot;</span>
+        <span class="p">};</span>
+        <span class="p">}]);</span>
+        <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">&quot;myForm&quot;</span> <span
+			        class="na">ng-controller=</span><span class="s">&quot;ExampleController&quot;</span><span
+			        class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span
+			        class="na">ng-model=</span><span class="s">&quot;color&quot;</span> <span
+			        class="na">value=</span><span class="s">&quot;red&quot;</span><span
+			        class="nt">&gt;</span>  Red <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span
+			        class="na">ng-model=</span><span class="s">&quot;color&quot;</span> <span
+			        class="na">ng-value=</span><span class="s">&quot;specialValue&quot;</span><span
+			        class="nt">&gt;</span> Green <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span
+			        class="na">ng-model=</span><span class="s">&quot;color&quot;</span> <span
+			        class="na">value=</span><span class="s">&quot;blue&quot;</span><span
+			        class="nt">&gt;</span> Blue <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;tt&gt;</span>color = {{color | json}}<span class="nt">&lt;/tt&gt;&lt;br</span> <span
+			        class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    Note that `ng-value=&quot;specialValue&quot;` sets radio item&#39;s value to be the value of `$scope.specialValue`.
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+	</div>
+
+</div>

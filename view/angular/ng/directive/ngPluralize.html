@@ -1,0 +1,177 @@
+<div>
+	<h2>ngPluralize</h2>
+
+	<br />
+	<h4 class="text-info">描述：</h4>
+	<p class="text-info">
+		ngpluralize指令通过规则判断显示相应的字符串（只能判断数字）。
+	</p>
+	<br />
+	<h4 class="text-info">ngPluralize配置：</h4>
+	<p class="text-info">
+		ngpluralize配置提供2个属性：count 和 when，您还可以提供一个可选属性，offset。
+		<br />
+		when属性是判断不同的值时显示对应的字符串。
+		<br />
+		下面的示例演示如何配置ngpluralize：
+	</p>
+	<br />
+	<div class="highlight">
+        <pre><span class="nt">&lt;ng-pluralize</span> <span class="na">count=</span><span class="s">&quot;personCount&quot;</span>
+        <span class="na">when=</span><span class="s">&quot;{&#39;0&#39;: &#39;Nobody is viewing.&#39;,</span>
+<span class="s">                     &#39;one&#39;: &#39;1 person is viewing.&#39;,</span>
+<span class="s">                     &#39;other&#39;: &#39;{} people are viewing.&#39;}&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/ng-pluralize&gt;</span>
+</pre>
+	</div>
+	<p class="text-info">
+		例子当中如果是personCount值是0将显示Nobody is viewing.。如果值是1将显示1 person is viewing.。如果值是其他值，将显示{} people are viewing.。{}对应personCount的值。
+	</p>
+	<h4 class="text-info">ngPluralize配置offset属性：</h4>
+	<p class="text-info">
+		偏移属性允许多元文本进一步定制，从而更好的用户体验。例如，而不是“4人正在查看这个文件”，你可能会显示“翰，凯特和2人正在查看本文件”。偏移属性可以减去任意偏移值。让我们来看一个例子：
+	</p>
+	<br />
+	<div class="highlight" ng-non-bindable>
+        <pre><span class="nt">&lt;ng-pluralize</span> <span class="na">count=</span><span class="s">&quot;personCount&quot;</span> <span class="na">offset=</span><span class="s">2</span>
+        <span class="na">when=</span><span class="s">&quot;{&#39;0&#39;: &#39;Nobody is viewing.&#39;,</span>
+<span class="s">                     &#39;1&#39;: &#39;{{person1}} is viewing.&#39;,</span>
+<span class="s">                     &#39;2&#39;: &#39;{{person1}} and {{person2}} are viewing.&#39;,</span>
+<span class="s">                     &#39;one&#39;: &#39;{{person1}}, {{person2}} and one other person are viewing.&#39;,</span>
+<span class="s">                     &#39;other&#39;: &#39;{{person1}}, {{person2}} and {} other people are viewing.&#39;}&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/ng-pluralize&gt;</span>
+</pre>
+	</div>
+	<p class="text-info">
+		例子中当为数字表示personCount的值，为英文数字表示personCount减去offset属性的值。显示结果可以再下面例子显示中看的到。
+	</p>
+	<h4 class="text-success">
+		指令优先级
+	</h4>
+	<p class="text-success">
+		优先级别0。
+	</p>
+	<br />
+	<h4 class="text-primary">用法：</h4>
+	<h5 class="text-primary">标签方式：</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;ng-pluralize</span>
+        <span class="na">count=</span><span class="s">&quot;&quot;</span>
+        <span class="na">when=</span><span class="s">&quot;&quot;</span>
+        <span class="err">[</span><span class="na">offset=</span><span class="s">&quot;&quot;</span><span class="err">]</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/ng-pluralize&gt;</span>
+</pre>
+	</div>
+	<h5 class="text-primary">属性方式：</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;ANY</span>
+        <span class="na">count=</span><span class="s">&quot;&quot;</span>
+        <span class="na">when=</span><span class="s">&quot;&quot;</span>
+        <span class="err">[</span><span class="na">offset=</span><span class="s">&quot;&quot;</span><span class="err">]</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/ANY&gt;</span>
+</pre>
+	</div>
+
+
+
+	<br />
+	<h4 class="muted">属性：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th width="10%">
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				count
+			</td>
+			<td>
+				expression||string
+			</td>
+			<td>
+				绑定判断的值
+			</td>
+		</tr>
+		<tr>
+			<td>
+				when
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				判断语句
+			</td>
+		</tr>
+		<tr>
+			<td>
+				offset
+				(optional)
+			</td>
+			<td>
+				number
+			</td>
+			<td>
+				偏移量
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<h4>例子：</h4><a class="text-warning" target="_blank" href="../demo/ngPluralize.html">效果演示</a>
+	<div class="highlight" ng-non-bindable>
+        <pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app=</span><span class="s">&quot;pluralizeExample&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../angular-1.3.9/angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;pluralizeExample&#39;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">person1</span> <span class="o">=</span> <span class="s1">&#39;Igor&#39;</span><span class="p">;</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">person2</span> <span class="o">=</span> <span class="s1">&#39;Misko&#39;</span><span class="p">;</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">personCount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}]);</span>
+        <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;ExampleController&quot;</span><span class="nt">&gt;</span>
+        Person 1:<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;person1&quot;</span> <span class="na">value=</span><span class="s">&quot;Igor&quot;</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        Person 2:<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;person2&quot;</span> <span class="na">value=</span><span class="s">&quot;Misko&quot;</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        Number of People:<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;personCount&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!--- Example with simple pluralization rules for en locale ---&gt;</span>
+        Without Offset:
+        <span class="nt">&lt;ng-pluralize</span> <span class="na">count=</span><span class="s">&quot;personCount&quot;</span>
+        <span class="na">when=</span><span class="s">&quot;{&#39;0&#39;: &#39;Nobody is viewing.&#39;,</span>
+<span class="s">                       &#39;one&#39;: &#39;1 person is viewing.&#39;,</span>
+<span class="s">                       &#39;other&#39;: &#39;{} people are viewing.&#39;}&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/ng-pluralize&gt;&lt;br&gt;</span>
+        <span class="c">&lt;!--- Example with offset ---&gt;</span>
+        With Offset(2):
+        <span class="nt">&lt;ng-pluralize</span> <span class="na">count=</span><span class="s">&quot;personCount&quot;</span> <span class="na">offset=</span><span class="s">2</span>
+        <span class="na">when=</span><span class="s">&quot;{&#39;0&#39;: &#39;Nobody is viewing.&#39;,</span>
+<span class="s">                       &#39;1&#39;: &#39;{{person1}} is viewing.&#39;,</span>
+<span class="s">                       &#39;2&#39;: &#39;{{person1}} and {{person2}} are viewing.&#39;,</span>
+<span class="s">                       &#39;one&#39;: &#39;{{person1}}, {{person2}} and one other person are viewing.&#39;,</span>
+<span class="s">                       &#39;other&#39;: &#39;{{person1}}, {{person2}} and {} other people are viewing.&#39;}&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/ng-pluralize&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+	</div>
+
+
+</div>

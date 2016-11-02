@@ -1,0 +1,169 @@
+<div>
+	<h2>textarea</h2>
+
+	<br />
+	<h4 class="text-info">描述：</h4>
+	<p class="text-info">
+		HTML textarea元素基础上angular添加了数据绑定和验证功能。
+
+	</p>
+	<br />
+
+	<h4 class="text-success">
+		指令优先级
+	</h4>
+	<p class="text-success">
+		优先级别0。
+	</p>
+	<br />
+	<h4 class="text-primary">用法：</h4>
+	<h5 class="text-primary">属性方式：</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;textarea</span>
+        <span class="na">ng-model=</span><span class="s">&quot;&quot;</span>
+        <span class="err">[</span><span class="na">name=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">required=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">ng-required=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">ng-minlength=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">ng-maxlength=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">ng-pattern=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">ng-change=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">ng-trim=</span><span class="s">&quot;&quot;</span><span class="err">]</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/textarea&gt;</span>
+</pre>
+	</div>
+
+
+
+
+	<br />
+	<h4 class="muted">属性：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th width="10%">
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				ngModel
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				绑定的数据
+			</td>
+		</tr>
+		<tr>
+			<td>
+				name
+				(optional)
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				名称
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ngRequired
+				(optional)
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				设置是否验证
+			</td>
+		</tr>
+		<tr>
+			<td>
+				required
+				(optional)
+			</td>
+			<td>
+				bool
+			</td>
+			<td>
+				验证不能为空
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				ngMinlength
+				(optional)
+			</td>
+			<td>
+				number
+			</td>
+			<td>
+				设置值的最小长度，如果超出这个最小长度提示验证错误。
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ngMaxlength
+				(optional)
+			</td>
+			<td>
+				number
+			</td>
+			<td>
+				设置值的最大长度，如果超出这个最大长度提示验证错误。
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				ngPattern
+				(optional)
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				设置表达式验证，如果ngmodel值不匹配一个正则表达式将提示错误。如果表达式计算为RegExp对象则是直接使用。如果表达式是一个字符串，然后将其转换为一个正则表达式它包裹在^ $字符后。例如，“ABC”会被转换成新的正则表达式（“ABC”^美元）。
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ngChange
+				(optional)
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				值改变时触发事件
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ngTrim
+				(optional)
+			</td>
+			<td>
+				boolen
+			</td>
+			<td>
+				如果设置为false将不会自动去掉输入空的前后空格，这个属性不适用于input[type=password],input[type=password]不能去掉前后的空格
+			</td>
+		</tr>
+		</tbody>
+	</table>
+
+</div>

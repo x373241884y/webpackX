@@ -1,0 +1,287 @@
+<div>
+	<h2>select</h2>
+
+	<br />
+	<h4 class="text-info">描述：</h4>
+	<p class="text-info">
+		html select标签angular数据绑定。
+
+	</p>
+	<br />
+	<h4 class="text-info">ngOptions：</h4>
+	<p class="text-info">
+		ngoptions属性可以使用数组或对象通过ngoptions表达式来动态生成一个列表元素的option
+		。<br />
+		在许多情况下，ngrepeat可用于代替ngoptions选项元素达到类似的结果。然而，ngoptions提供了一些好处，如减少内存和不产生对每个重复的实例的一个新的scope，提高速度，以及提供怎样的<选择>
+		的模型更灵活分配通过选择的理解表达的一部分。ngoptions应该在select模型需要绑定到一个非字符串值。这是因为一个选项元素只能绑定到当前字符串值。<br />
+		当select菜单选中其中一项，那么哪项的数组元素或是对象属性将绑定到模型的ngModel指令识别的变量中。<br />
+		或者，一个单一的option元素，与一个空字符串的值，可以嵌套到select元素。这个元素将代表空或“未选择”选项。<br/>
+
+	</p>
+	<br />
+	<h4 class="text-info">select as：</h4>
+	<p class="text-info">
+		select选中的值是绑定的ngModel的值但是这个值是as之前对应的值，用法：
+	</p>
+	<a class="text-warning" target="_blank" href="../demo/selectas.html">效果演示</a>
+	<div class="highlight">
+        <pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app=</span><span class="s">&quot;selectExample&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>selectas<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../angular-1.3.0.14/angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;selectExample&#39;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">users</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;2&#39;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;3&#39;</span> <span class="p">}</span>
+        <span class="p">];</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">selected</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span><span class="p">;</span><span class="c1">//id的值，区分类型</span>
+        <span class="p">}]);</span>
+        <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;ExampleController&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;select</span> <span class="na">ng-model=</span><span class="s">&quot;selected&quot;</span> <span class="na">ng-options=</span><span class="s">&quot;x.id as x.name for x in users&quot;</span><span class="nt">&gt;&lt;/select&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+	</div>
+
+	<br />
+	<h4 class="text-info">select as 和 track by：</h4>
+
+	<p class="text-info">
+		不要在同一个表达式使用select as 和track by，track by和select as类似但track by 优先级更高点。用法：
+	</p>
+	<a class="text-warning" target="_blank" href="../demo/trackby.html">效果演示</a>
+	<div class="highlight">
+        <pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app=</span><span class="s">&quot;selectExample&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>track by例子<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../angular-1.3.0.14/angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;selectExample&#39;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">values</span> <span class="o">=</span> <span class="p">[{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;aLabel&#39;</span><span class="p">,</span>
+        <span class="nx">subItem</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;aSubItem&#39;</span> <span class="p">}</span>
+        <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;bLabel&#39;</span><span class="p">,</span>
+        <span class="nx">subItem</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;bSubItem&#39;</span> <span class="p">}</span>
+        <span class="p">}];</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">selected</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">selected1</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;bSubItem&#39;</span> <span class="p">};</span>
+        <span class="p">}]);</span>
+        <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body</span> <span class="na">ng-controller=</span><span class="s">&quot;ExampleController&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;select</span> <span class="na">ng-options=</span><span class="s">&quot;item.subItem as item.label for item in values track by item.id&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;selected&quot;</span><span class="nt">&gt;&lt;/select&gt;</span>
+        <span class="nt">&lt;select</span> <span class="na">ng-options=</span><span class="s">&quot;item.subItem as item.label for item in values track by item.id&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;selected1&quot;</span><span class="nt">&gt;&lt;/select&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+	</div>
+	<br />
+	<h4 class="text-success">
+		指令优先级
+	</h4>
+	<p class="text-success">
+		优先级别0。
+	</p>
+	<br />
+	<h4 class="text-primary">用法：</h4>
+	<h5 class="text-primary">属性方式：</h5>
+	<div class="highlight">
+        <pre><span class="nt">&lt;select</span>
+        <span class="na">ng-model=</span><span class="s">&quot;&quot;</span>
+        <span class="err">[</span><span class="na">name=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">required=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">ng-required=</span><span class="s">&quot;&quot;</span><span class="err">]</span>
+        <span class="err">[</span><span class="na">ng-options=</span><span class="s">&quot;&quot;</span><span class="err">]</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/select&gt;</span>
+</pre>
+	</div>
+	<br />
+	<h4 class="muted">属性：</h4>
+	<table class="table muted">
+		<thead>
+		<tr>
+			<th>
+				参数名称
+			</th>
+			<th>
+				参数类型
+			</th>
+			<th>
+				描述
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+				ngModel
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				绑定的数据
+			</td>
+		</tr>
+		<tr>
+			<td>
+				name
+				(optional)
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				名称
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ngRequired
+				(optional)
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				设置是否验证
+			</td>
+		</tr>
+		<tr>
+			<td>
+				required
+				(optional)
+			</td>
+			<td>
+				bool
+			</td>
+			<td>
+				验证不能为空
+			</td>
+		</tr>
+		<tr>
+			<td>
+				ngOptions
+				(optional)
+			</td>
+			<td>
+				string
+			</td>
+			<td>
+				选项值表达式绑定
+				<ul class="list-group">
+					<li class="list-group-item-heading">数组数据源</li>
+					<ul>
+						<li>
+							label for value in array(就是循环数组数据);
+						</li>
+						<li>
+							select as label for value in array(select as用法);
+						</li>
+						<li>
+							label group by group for value in array(分组);
+						</li>
+						<li>
+							label group by group for value in array track by trackexpr(分组加track by用法);
+						</li>
+						<li>
+							label for value in array | orderBy:orderexpr track by trackexpr(排序加track by用法);
+						</li>
+					</ul>
+					<li class="list-group-item-heading">对象数据源</li>
+					<ul>
+						<li>
+							label for (key , value) in object;
+						</li>
+						<li>
+							select as label for (key , value) in object
+						</li>
+						<li>
+							label group by group for (key, value) in object
+						</li>
+						<li>
+							select as label group by group for (key, value) in object
+						</li>
+					</ul>
+				</ul>
+			</td>
+		</tr>
+
+
+		</tbody>
+	</table>
+	<br />
+	<h4>例子：</h4>
+	<a class="text-warning" target="_blank" href="../demo/select.html">效果演示</a>
+	<div class="highlight" ng-non-bindable>
+        <pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app=</span><span class="s">&quot;selectExample&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>select例子<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../angular-1.3.0.14/angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;selectExample&#39;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="nx">shade</span><span class="o">:</span> <span class="s1">&#39;dark&#39;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="nx">shade</span><span class="o">:</span> <span class="s1">&#39;light&#39;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="nx">shade</span><span class="o">:</span> <span class="s1">&#39;dark&#39;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="nx">shade</span><span class="o">:</span> <span class="s1">&#39;dark&#39;</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="nx">shade</span><span class="o">:</span> <span class="s1">&#39;light&#39;</span> <span class="p">}</span>
+        <span class="p">];</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">myColor</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">// red</span>
+        <span class="p">}]);</span>
+        <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;ExampleController&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ul&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">&quot;color in colors&quot;</span><span class="nt">&gt;</span>
+                Name: <span class="nt">&lt;input</span> <span class="na">ng-model=</span><span class="s">&quot;color.name&quot;</span><span class="nt">&gt;</span>
+                [<span class="nt">&lt;a</span> <span class="na">href</span> <span class="na">ng-click=</span><span class="s">&quot;colors.splice($index, 1)&quot;</span><span class="nt">&gt;</span>X<span class="nt">&lt;/a&gt;</span>]
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>
+                [<span class="nt">&lt;a</span> <span class="na">href</span> <span class="na">ng-click=</span><span class="s">&quot;colors.push({})&quot;</span><span class="nt">&gt;</span>add<span class="nt">&lt;/a&gt;</span>]
+        <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;hr</span> <span class="nt">/&gt;</span>
+        Color (null not allowed):
+        <span class="nt">&lt;select</span> <span class="na">ng-model=</span><span class="s">&quot;myColor&quot;</span> <span class="na">ng-options=</span><span class="s">&quot;color.name for color in colors&quot;</span><span class="nt">&gt;&lt;/select&gt;&lt;br&gt;</span>
+        Color (null allowed):
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;nullable&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;select</span> <span class="na">ng-model=</span><span class="s">&quot;myColor&quot;</span> <span class="na">ng-options=</span><span class="s">&quot;color.name for color in colors&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>-- choose color --<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/select&gt;</span>
+        <span class="nt">&lt;/span&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        Color grouped by shade:
+        <span class="nt">&lt;select</span> <span class="na">ng-model=</span><span class="s">&quot;myColor&quot;</span> <span class="na">ng-options=</span><span class="s">&quot;color.name group by color.shade for color in colors&quot;</span><span class="nt">&gt;&lt;/select&gt;&lt;br</span> <span class="nt">/&gt;</span>
+        Select <span class="nt">&lt;a</span> <span class="na">href</span> <span class="na">ng-click=</span><span class="s">&quot;myColor = { name:&#39;not in list&#39;, shade: &#39;other&#39; }&quot;</span><span class="nt">&gt;</span>bogus<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;br&gt;</span>
+        <span class="nt">&lt;hr</span> <span class="nt">/&gt;</span>
+        Currently selected: {{{selected_color:myColor}}}
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border:solid 1px black; height:20px&quot;</span>
+        <span class="na">ng-style=</span><span class="s">&quot;{&#39;background-color&#39;:myColor.name}&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+        <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre>
+	</div>
+
+
+</div>

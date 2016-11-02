@@ -1,0 +1,34 @@
+<div>
+	<h2>$compile.directive.Attributes</h2>
+
+	<br />
+	<h4 class="text-info">描述：</h4>
+	<p class="text-info"> 在指令compile / linking方法间的一个共用对象，包含标准的DOM元素的属性。值反映当前绑定状态<span ng-non-bindable>{{}}</span>。该标准化是必要的，因为下面这些都视为为等效的：</p>
+	<br />
+	<div class="highlight">
+        <pre><span class="nt">&lt;span</span> <span class="na">ng:bind=</span><span class="s">&quot;a&quot;</span> <span class="na">ng-bind=</span><span class="s">&quot;a&quot;</span> <span class="na">data-ng-bind=</span><span class="s">&quot;a&quot;</span> <span class="na">x-ng-bind=</span><span class="s">&quot;a&quot;</span><span class="nt">&gt;</span>
+</pre>
+	</div>
+
+	<h3 class="text-success">
+		方法：
+	</h3>
+	<h4 ng-non-bindable>$normalize(name);</h4>
+	<p>将一个属性名称规范化。</p>
+	<br />
+	<h4 ng-non-bindable>$addClass(classVal);</h4>
+	<p>给指定元素加classval参数的clas类。</p>
+	<br/>
+	<h4 ng-non-bindable>$removeClass(classVal);</h4>
+	<p>移除指定元素的中classval参数对应的class类。</p>
+	<br/>
+	<h4 ng-non-bindable>$updateClass(newClasses, oldClasses);</h4>
+	<p>添加和删除相应的CSS类值，基于新的和旧的CSS类之间的差异值的元素（指定新class和旧class）。</p>
+	<br/>
+	<h4 ng-non-bindable>$observe(key, fn);</h4>
+	<p>在编译后的下一次摘要中，该观测器函数将被调用一次。然后调用时的内插值的变化。</p>
+	<br/>
+	<h4 ng-non-bindable>$set(name, value);</h4>
+	<p>设置DOM元素的属性值。</p>
+	<br/>
+</div>
