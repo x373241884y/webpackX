@@ -6,8 +6,6 @@ var Footer = React.createClass({
 		return (
 			<div>
 				<h2>Footer</h2>
-				{/* Render the child route component */}
-				{this.props.children}
 			</div>
 		);
 	}
