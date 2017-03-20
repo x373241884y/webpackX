@@ -38,7 +38,7 @@ var Footer = React.createClass({
 										<ul className="nav">
 											{
 												row.children.map(function (item,index2) {
-													return <li key={index2}><Link className="level2" to={item.url}>{index1+1}-{index2+1}.{item.name}</Link></li>
+													return <li key={index2}><Link className="level2" to={'/doc/'+item.url}>{index1+1}-{index2+1}.{item.name}</Link></li>
 												})
 											}
 										</ul>
@@ -48,9 +48,6 @@ var Footer = React.createClass({
 						}
 
 					</ul>
-					<div className="detail">
-						{this.props.children}
-					</div>
 				</div>
 			</div>
 		);
